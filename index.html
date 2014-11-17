@@ -5,15 +5,36 @@
   <title>Sunny</title>
  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/earlyaccess/hanna.css">
  <meta name="viewport" content="width=device-width, user-scalable=no">
+
 <script>
+
     function getValue(){
       var y=document.getElementById("myHeader");
         if(y.innerHTML == "Click me!")
       y.innerHTML="반짝반짝 빛나는 칠공주가 떳다!";
     }
-  
+  var ary = new Array();
+ary.push('sunnyposter/1.jpg');
+ary.push('sunnyposter/2.jpg');
+ary.push('sunnyposter/3.jpg');
+ary.push('sunnyposter/4.jpg');
+ary.push('sunnyposter/5.jpg');
+ary.push('sunnyposter/6.jpg');
+ary.push('sunnyposter/7.jpg');
+ary.push('sunnyposter/8.jpg');
+ary.push('sunnyposter/9.jpg');
+ary.push('sunnyposter/10.jpg');
+window.onload = function()
+{
+document.body.style.backgroundImage = 'url('+ary[Math.floor(Math.random()*ary.length)]+')';
+}
+
  </script>
   <style>
+  body{margin:auto;
+      background: no-repeat top;
+      background-color:#C9CE58;
+      font-family: 'Hanna', serif;}
   #imgbox h4{
               width: 100px;} 
   p{margin: 20px 0px 30px 20px;
@@ -63,10 +84,7 @@
           float: left;}
     body{width:1000px;
       height:1400px;
-      margin:auto;
-      background: url('sunnyposter/sunnybgm.jpg') no-repeat top;
-      background-color:#C9CE58;
-      font-family: 'Hanna', serif;}
+      }
     
     #textbox{margin-top:20px;
         width:1000px;
@@ -84,25 +102,19 @@
           }
 
     @media screen and (max-width:500px){
-
+    img {
+        width:480px;
+        
+         }
   	body{width:500px;
   		height:700px;
-    	margin:auto;
-    	background: url('sunnyposter/sunnybgm.jpg') no-repeat top;
-    	background-color:#C9CE58;
-    	font-family: 'Hanna', serif;}
+    	}
    
    	#textbox{margin-top:20px;
    			width:500px;
    			height:270px;
    			background-color:#C9CE58;
    			padding:10px;}
-   	
-    
-    img {
-        width:240px;
-        
-    }
     #imgbox{margin: auto;
             width: 500px;
             background-color:#C9CE58;
@@ -136,11 +148,11 @@
   </div>
  </div>
  <div id="imgbox">
-  <h4 class="medtitle">스틸 컷 <h5>이미지에 마우스를 올려보세요!</h5> </h4>
-  <img class="one" onmouseover="this.src='sunnyposter/2.jpg'" onmouseout="this.src='sunnyposter/1.jpg'"src="sunnyposter/1.jpg"/>
-  <img class="one" onmouseover="this.src='sunnyposter/4.jpg'" onmouseout="this.src='sunnyposter/3.jpg'"src="sunnyposter/3.jpg"/>
-  <img class="one" onmouseover="this.src='sunnyposter/6.jpg'" onmouseout="this.src='sunnyposter/5.jpg'"src="sunnyposter/5.jpg"/>
-  <img class="one" onmouseover="this.src='sunnyposter/8.jpg'" onmouseout="this.src='sunnyposter/7.jpg'"src="sunnyposter/7.jpg"/>
+  <h4 class="medtitle">스틸 컷</h4><h5>이미지에 마우스를 올려보세요!</h5>
+  <img class="one" onmouseover="this.src='sunnyposter/2.jpg'" onmouseout="this.src='sunnyposter/1.jpg'" src="sunnyposter/1.jpg" alt="noimage">
+  <img class="one" onmouseover="this.src='sunnyposter/4.jpg'" onmouseout="this.src='sunnyposter/3.jpg'" src="sunnyposter/3.jpg" alt="noimage">
+  <img class="one" onmouseover="this.src='sunnyposter/6.jpg'" onmouseout="this.src='sunnyposter/5.jpg'" src="sunnyposter/5.jpg" alt="noimage">
+  <img class="one" onmouseover="this.src='sunnyposter/8.jpg'" onmouseout="this.src='sunnyposter/7.jpg'" src="sunnyposter/7.jpg" alt="noimage">
  </div>
 </body>
 </html>
