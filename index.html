@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Sunny</title>
+ <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/earlyaccess/hanna.css">
+ <meta name="viewport" content="width=device-width, user-scalable=no">
+
+<script>
+window.onload = function() {
+        
+
+
+        var ary = [];
+        for (var i=0;i<10;i++){ 
+        ary.push('sunnyposter/'+i+'.jpg');
+        document.body.style.backgroundImage = 'url('+ary[Math.floor(Math.random()*ary.length)]+')';
+        console.log(document.body.style.backgroundImage);
+        }
+        var x = 800;
+        var slider = document.getElementById("slider");
+        var slideArray = slider.getElementsByTagName("li");
+        var slideMax = slideArray.length - 1;
+        var curSlideNo = 0;
+ 
+        for (i = 0; i <= slideMax; i++) {
+            if (i == curSlideNo) slideArray[i].style.left = 0;
+            else slideArray[i].style.left = -x + "px";
+        }
+ 
+        slider.addEventListener('click', function () {
+            changeSlide();
+        }, false);
+ 
+        var aniStart = false;
+        var next = 1;
+        var changeSlide = function(){
+            if (aniStart === true) return;
+            next = curSlideNo + 1;
+            if (next > slideMax) next = 0;
+            aniStart = true;
+            sliding();
+        }
+ 
+        function sliding() {
+            var curX = parseInt(slideArray[curSlideNo].style.left, 10);
+            var nextX = parseInt(slideArray[next].style.left, 10);
+            var newCurX = curX + 10;
+            var newNextX = nextX + 10;
+            if (newCurX >= x) {
+                slideArray[curSlideNo].style.left = -x + "px";
+                slideArray[next].style.left = 0;
+                curSlideNo = curSlideNo + 1;
+                if (curSlideNo > slideMax) curSlideNo = 0;
+                aniStart = false;
+                return;
+            }
+            slideArray[curSlideNo].style.left = newCurX + "px";
+            slideArray[next].style.left = newNextX + "px";
+            setTimeout(function () {
+                sliding();
+            }, 20);
+        }
+        setInterval(changeSlide,4000);}     
+
+    function getValue(){
+      var y=document.getElementById("myHeader");
+        if(y.innerHTML == "Click me!")
+      y.innerHTML="반짝반짝 빛나는 칠공주가 떳다!";
+       }
+       var mouseX = 0;
+     var mouseY = 0; 
+
+     function getMousePosition(e){
+          var eObj = window.event? window.event : e;
+          mouseX = eObj.clientX;
+          mouseY = eObj.clientY + document.body.scrollTop; 
+     }
+
+     function moveImg(){
+          var m_x = parseInt(document.getElementById('img1').style.left.replace('px', ''));
+          var m_y = parseInt(document.getElementById('img1').style.top.replace('px', ''));
+
+          document.getElementById('img1').style.left = Math.round(m_x + ((mouseX - m_x) / 2))+'px';
+          document.getElementById('img1').style.top = Math.round(m_y + ((mouseY - m_y) / 2))+'px';
+ 
+     }
+      
+     document.onmousemove = getMousePosition; 
+     setInterval("moveImg()", 50); 
+
+ </script>
+
+<style>
+  #textboxalign{margin:auto;}
+  #img1{width: 50px;}
+  #slidebox {
+        margin: auto;
+        position:relative;
+        width:800px;
+        height:450px;
+        overflow:hidden;
+        white-space:nowrap;
+        border:1px solid #000;
+    }
+    #slidebox ul#slider {
+        list-style:none;
+        margin:0;
+        padding:0;
+    }
+    #slidebox ul li {
+        position:absolute;
+        width:800px;
+        height:450px;
+    }
+    #slidebox ul li img {
+        width:800px;
+    }
+  body{margin:auto;
+      background: no-repeat top;
+      background-size: 100%;
+      background-color:#C9CE58;
+      font-family: 'Hanna', serif;}
+  #imgbox{clear: both;
+    width: 100%;background-color:#C9CE58;
+          margin-top: 20px;
+          height: 600px;} 
+  p{margin: 20px 0px 30px 20px;
+      font-size:12pt;
+      width: 180px;
+      line-height: 25px;}
+  #link{
+      line-height: 25pt;
+      background-color: #C9CE58;
+      font-size: 20pt;
+      position: fixed;
+    top: 0px;
+    right: 10px;
+    z-index: 100;
+    width: 200px;
+    padding: 10px 5px 5px 5px;
+    border-radius: 0px 0px 5px 5px;
+    border: 4px solid #E40531 ; 
+    border-top: 0px  ;}
+    #link a{margin: 0px 8px;}
+  h1{text-align:center;
+      font-size: 18vw;
+      color:#E40531;
+      margin-top:10% ;
+      text-shadow: -5px 0 #FDE96E, 0 5px #FDE96E, 5px 0 #FDE96E, 0 -5px #FDE96E;}
+    h2{text-align:center;
+      font-size: 7vw;
+      color: #FDE96E;
+      text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+      margin-top:-12%;
+      }
+    h3{text-align:center;
+      font-size: 3vw;
+       font-weight: bold;
+      color:#fff;
+      
+      margin-bottom: 20%;
+       text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black}
+   a:link{text-decoration:none; color:#18AAEA;}
+    a:visited{color:#18AAEA;}
+    a:hover{color:yellow;}
+    .medtitle{color:#E3286E;
+        font-size: 15pt;
+        margin: 0px 0px 10px 5px;
+        }
+    #textbox{margin-top:auto;
+        width:100%;
+        background-color:#C9CE58;
+        padding:10px;
+        }
+    .text{width: 180px;
+          padding: 0px 50px 0px 50px;
+          float: left;}
+    @media screen and (max-width:1000px){
+    #textboxalign{width:100%}
+}
+  @media screen and (min-width:1001px){
+    #textboxalign{width:1000px; }
+  }
+  
+  </style>
+</head>
+<body>
+	
+ <h1>써니</h1>
+ <h2>Sunny</h2>
+ <h3 id="myHeader" onclick="getValue()">Click me!</h3>
+
+<div id="textbox">
+  <div id="textboxalign">
+    <div class="text">
+ 	    <h4 class="medtitle">개요</h4>
+      <p>코미디, 드라마한국124분 2011.07.28 재개봉, 2011.05.04 개봉</p>
+    </div >
+    <div class="text">
+ 	    <h4 class="medtitle">등급</h4>
+      <p>[국내] 15세 관람가</p>
+    </div>
+    <div class="text">
+      <h4 class="medtitle">감독</h4>
+      <p>강형철</p>
+    </div>
+    <div id="link">
+      <a href="face.html">등장인물</a>
+      <a href="story.html">줄거리</a>
+    </div>
+  </div>
+</div>
+<div id="imgbox">
+  <div id="slidebox">
+        <ul id="slider">
+            <li>
+                <img src="sunnyposter/1.jpg" alt="noimg"/>
+            </li>
+            <li>
+                <img src="sunnyposter/2.jpg" alt="noimg"/>
+            </li>
+            <li>
+                <img src="sunnyposter/3.jpg" alt="noimg"/>
+            </li>
+            <li>
+                <img src="sunnyposter/4.jpg" alt="noimg"/>
+            </li>
+            <li>
+                <img src="sunnyposter/5.jpg" alt="noimg"/>
+            </li>
+            <li>
+                <img src="sunnyposter/6.jpg" alt="noimg"/>
+            </li>
+            <li>
+                <img src="sunnyposter/7.jpg" alt="noimg"/>
+            </li>
+            <li>
+                <img src="sunnyposter/8.jpg" alt="noimg"/>
+            </li>
+            <li>
+                <img src="sunnyposter/9.jpg" alt="noimg"/>
+            </li>
+            <li>
+                <img src="sunnyposter/0.jpg" alt="noimg"/>
+            </li>
+            
+        </ul>
+    </div>
+ </div>
+  
+    <img id="img1" style="position:absolute; left:0; top:0;" src="cursor.gif" alt="noimg">
+</body>
+</html>
