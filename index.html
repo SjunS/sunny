@@ -68,6 +68,27 @@ window.onload = function() {
         if(y.innerHTML == "Click me!")
       y.innerHTML="반짝반짝 빛나는 칠공주가 떳다!";
        }
+      
+      var mouseX = 0;
+     var mouseY = 0; 
+
+     function getMousePosition(e){
+          var eObj = window.event? window.event : e;
+          mouseX = eObj.clientX;
+          mouseY = eObj.clientY + document.body.scrollTop; 
+     }
+
+     function moveImg(){
+          var m_x = parseInt(document.getElementById('img1').style.left.replace('px', ''));
+          var m_y = parseInt(document.getElementById('img1').style.top.replace('px', ''));
+
+          document.getElementById('img1').style.left = Math.round(m_x + ((mouseX - m_x) / 2))+'px';
+          document.getElementById('img1').style.top = Math.round(m_y + ((mouseY - m_y) / 2))+'px';
+ 
+     }
+      
+     document.onmousemove = getMousePosition; 
+     setInterval("moveImg()", 50); 
  </script>
 
 <style>
@@ -223,27 +244,6 @@ window.onload = function() {
  </div>
   
     <img id="img1" style="position:absolute; left:0; top:0;" src="cursor.gif" alt="noimg">
-    <script type="text/javascript">
-    var mouseX = 0;
-     var mouseY = 0; 
-
-     function getMousePosition(e){
-          var eObj = window.event? window.event : e;
-          mouseX = eObj.clientX;
-          mouseY = eObj.clientY + document.body.scrollTop; 
-     }
-
-     function moveImg(){
-          var m_x = parseInt(document.getElementById('img1').style.left.replace('px', ''));
-          var m_y = parseInt(document.getElementById('img1').style.top.replace('px', ''));
-
-          document.getElementById('img1').style.left = Math.round(m_x + ((mouseX - m_x) / 2))+'px';
-          document.getElementById('img1').style.top = Math.round(m_y + ((mouseY - m_y) / 2))+'px';
- 
-     }
-      
-     document.onmousemove = getMousePosition; 
-     setInterval("moveImg()", 50); 
-     </script>
+    
 </body>
 </html>
