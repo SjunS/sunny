@@ -68,8 +68,12 @@ window.onload = function() {
         if(y.innerHTML == "Click me!")
       y.innerHTML="반짝반짝 빛나는 칠공주가 떳다!";
        }
+<<<<<<< Updated upstream
       
       var mouseX = 0;
+=======
+       var mouseX = 0;
+>>>>>>> Stashed changes
      var mouseY = 0; 
 
      function getMousePosition(e){
@@ -89,10 +93,14 @@ window.onload = function() {
       
      document.onmousemove = getMousePosition; 
      setInterval("moveImg()", 50); 
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
  </script>
 
 <style>
-  .textboxalign{margin-bottom: 10px;}
+  #textboxalign{margin:auto;}
   #img1{width: 50px;}
   #slidebox {
         margin: auto;
@@ -124,10 +132,10 @@ window.onload = function() {
   #imgbox{clear: both;
     width: 100%;background-color:#C9CE58;
           margin-top: 20px;
-          height: 800px;} 
+          height: 600px;} 
   p{margin: 20px 0px 30px 20px;
       font-size:12pt;
-      width: 300px;
+      width: 180px;
       line-height: 25px;}
   #link{
       line-height: 25pt;
@@ -173,9 +181,15 @@ window.onload = function() {
         background-color:#C9CE58;
         padding:10px;
         }
-    .text{width: 320px;
+    .text{width: 180px;
+          padding: 0px 50px 0px 50px;
           float: left;}
-
+    @media screen and (max-width:1000px){
+    #textboxalign{width:100%}
+}
+  @media screen and (min-width:1001px){
+    #textboxalign{width:1000px; }
+  }
   
   </style>
 </head>
@@ -244,6 +258,9 @@ window.onload = function() {
  </div>
   
     <img id="img1" style="position:absolute; left:0; top:0;" src="cursor.gif" alt="noimg">
+<<<<<<< Updated upstream
     
+=======
+>>>>>>> Stashed changes
 </body>
 </html>
