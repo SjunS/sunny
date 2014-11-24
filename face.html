@@ -6,6 +6,7 @@
   <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/earlyaccess/hanna.css">
 <meta name="viewport" content="width=device-width, user-scalable=no">
   <style>
+  #img1{width: 50px;}
   #poster{height: 350px;
           margin:auto;
           padding-top:150px;
@@ -63,8 +64,6 @@
       body{
       width: 380px;   
       padding: 10px;}
-
-  }
 }
   @media screen and (min-width:501px){
     #poster{width: 700px;}
@@ -96,5 +95,28 @@
   <li><img class="face" src="profile/e6.gif" alt="이미지가없습니다"> <a href="http://movie.naver.com/movie/bi/pi/basic.nhn?code=46022">홍진희</a> <span class="sunny">주연</span> 진희 역</li>
 </ul>
 </div>
+ <img id="img1" style="position:absolute; left:0; top:0;" src="cursor.gif" alt="noimg">
+    <script type="text/javascript">
+    var mouseX = 0;
+     var mouseY = 0; 
+
+     function getMousePosition(e){
+          var eObj = window.event? window.event : e;
+          mouseX = eObj.clientX;
+          mouseY = eObj.clientY + document.body.scrollTop; 
+     }
+
+     function moveImg(){
+          var m_x = parseInt(document.getElementById('img1').style.left.replace('px', ''));
+          var m_y = parseInt(document.getElementById('img1').style.top.replace('px', ''));
+
+          document.getElementById('img1').style.left = Math.round(m_x + ((mouseX - m_x) / 2))+'px';
+          document.getElementById('img1').style.top = Math.round(m_y + ((mouseY - m_y) / 2))+'px';
+ 
+     }
+      
+     document.onmousemove = getMousePosition; 
+     setInterval("moveImg()", 50); 
+     </script>
 </body>
 </html>
