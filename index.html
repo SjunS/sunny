@@ -103,7 +103,7 @@ window.onload = function() {
         white-space:nowrap;
         border:1px solid #000;
     }
-    #slidebox ul#slider {
+    #slidebox ul {
         list-style:none;
         margin:0;
         padding:0;
@@ -182,7 +182,46 @@ window.onload = function() {
   @media screen and (min-width:1001px){
     #textboxalign{width:1000px; }
   }
-  
+    
+    @media print { 
+      #img1{ display: none;}
+      #link{display: none;}
+      body{background-color:#C9CE58;}
+      h1{font-size: 130pt;}
+      h2{font-size: 50pt;
+         }
+      #myHeader{display: none;
+      }
+      #slidebox{
+                white-space: normal;
+                 width: 176mm;
+                 height: 80mm;
+                 
+                 border: 0mm;
+                 position: static;
+                 }
+      #imgbox{white-space: normal;
+              height: 95mm}
+      #slidebox ul{position: static;
+                  float: left;
+                  white-space: normal;}
+      #slidebox ul li{margin: 2mm;
+          width: 40mm;
+          height: 23mm;
+          float: left;
+          position: static;
+          white-space: normal;}
+
+      #slidebox ul li img{width: 40mm;
+                  white-space: normal;}
+                  }
+      h4{font-size: 18pt;}
+      p{font-size: 10pt;
+        width: 30mm;}
+      .text{width: 40mm;
+            padding:10mm;}
+
+    }
   </style>
 </head>
 <body>
